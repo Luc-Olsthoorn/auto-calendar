@@ -1,0 +1,9 @@
+{
+    "name": "auto-calendar",
+    "version": "0.0.1",
+    "dependencies": {
+        "semantic-ui": "latest",
+        "angular": "latest",
+        "angular-route": "latest"   
+    }
+}

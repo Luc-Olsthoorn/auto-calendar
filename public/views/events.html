@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+    <h1>Events</h1>
+   
+ 	
+    <div id="authorize-div" >
+      <span>Authorize access to Google Calendar API</span>
+      <!--Button for the user to click to initiate auth sequence -->
+      <button ng-click="getEvents()" >
+        Authorize
+      </button>
+    </div>
+    
+  
+    <div ng-repeat="x in events">
+    	<div>
+        	<h1>{{x.summary}}</h1>
+        	<p>{{x.location}}</p>
+        	<p>{{x.start.dateTime}}</p>
+    </div>
+    </div>
+    <!--<p>{{ events }}</p>-->
+</table>
+</div>
