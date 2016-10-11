@@ -5,15 +5,13 @@
 
         // home page
         .when('/', {
-            templateUrl: 'views/home.html',
-            controller: 'MainController'
+            templateUrl: 'views/events.html',
+            controller: 'NerdController'
+            
         })
 
         // nerds page that will use the NerdController
-        .when('/nerds', {
-            templateUrl: 'views/events.html',
-            controller: 'NerdController'
-        });
+        
 
     $locationProvider.html5Mode(true);
 
