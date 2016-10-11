@@ -1,6 +1,6 @@
 // Your Client ID can be retrieved from your project in the Google
       // Developer Console, https://console.developers.google.com
-      var events;
+      var events="";
       var CLIENT_ID = '217774091050-mhhdso21bkcqe2finktjhvn5do0nhreq.apps.googleusercontent.com';
 
       var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
@@ -61,6 +61,7 @@
        * appropriate message is printed.
        */
       function listUpcomingEvents() {
+
         var request = gapi.client.calendar.events.list({
           'calendarId': 'primary',
           'timeMin': (new Date()).toISOString(),
@@ -72,23 +73,36 @@
 
         request.execute(function(resp) 
         {
-
-          events = resp.items;
-          console.log(events);
+            events = resp.items;
+            
         });
+        
       }
-
 
 angular.module('NerdCtrl', []).controller('NerdController', function($scope) {
 
-	
-    
+  
+  $scope.currentDate = new Date();
     $scope.getEvents = function() {
-    	console.log("clicked");
-    	handleAuthClick();
-    	console.log("yeeeee");
-    	console.log(events);
-    	$scope.events = events;
-	};
+      console.log("clicked");
+      $scope.events = events;
+      checkAuth();
+
+  };
+  
+  $scope.$watchCollection('events', function(events){
+      console.log(events);
+      
+      for(var i = 0; i < events.length; i++)
+      {
+        var a = new Date(events[i].start.dateTime);
+         
+        console.log(a.getDay());
+        if(a.getDay() == 2 )
+        {
+          
+        }
+      }
+      });
 
 });

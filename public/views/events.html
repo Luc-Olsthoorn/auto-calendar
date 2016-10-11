@@ -1,23 +1,44 @@
 <div class="jumbotron text-center">
     <h1>Events</h1>
    
- 	
-    <div id="authorize-div" >
+      <button ng-click="getEvents()" >
+        Get events
+      </button>
+
+    <div id="authorize-div" style="display:none;">
       <span>Authorize access to Google Calendar API</span>
       <!--Button for the user to click to initiate auth sequence -->
-      <button ng-click="getEvents()" >
+      <button id="authorize-button" onclick="handleAuthClick(event)">
         Authorize
-      </button>
-    </div>
+	      </button>
+  	</div>
+	    <h1>{{currentDate}}</h1>
+	    <div class="ui container">
+	    	<div class="ui grid">
+	   		<div id="monday"class="two wide column">Monday</div>
+	  		<div id="tuesday"class="two wide column">Tuesday</div>
+	 		<div id="wednesday"class="two wide column">Wednesday</div>
+	  		<div id="thursday"class="two wide column">Thursday</div>
+	  		<div id="friday"class="two wide column">Friday</div>
+			<div id="saturday"class="two wide column">Saturday</div>
+			<div id="sunday"class="two wide column">Sunday</div>
+	  	</div>
+	</div>
+	<div ng-repeat="x in events "class="ui cards ">
+		<div class="card " id="card{{$index}}" >
+		    <div class="content ">
+		      	<div class="header">
+		        	{{x.summary}}
+		      	</div>
+		      	<div class="meta">
+		        	{{x.location}}
+		      	</div>
+		      	<div class="description">
+		        	{{x.start.dateTime}}
+		      	</div>
+		    </div>
+		</div>
+	</div>
     
-  
-    <div ng-repeat="x in events">
-    	<div>
-        	<h1>{{x.summary}}</h1>
-        	<p>{{x.location}}</p>
-        	<p>{{x.start.dateTime}}</p>
-    </div>
-    </div>
-    <!--<p>{{ events }}</p>-->
 </table>
 </div>
