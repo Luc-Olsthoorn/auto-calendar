@@ -78,31 +78,3 @@
         });
         
       }
-
-angular.module('NerdCtrl', []).controller('NerdController', function($scope) {
-
-  
-  $scope.currentDate = new Date();
-    $scope.getEvents = function() {
-      console.log("clicked");
-      $scope.events = events;
-      checkAuth();
-
-  };
-  
-  $scope.$watchCollection('events', function(events){
-      console.log(events);
-      
-      for(var i = 0; i < events.length; i++)
-      {
-        var a = new Date(events[i].start.dateTime);
-         
-        console.log(a.getDay());
-        if(a.getDay() == 2 )
-        {
-          
-        }
-      }
-      });
-
-});

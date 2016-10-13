@@ -11,7 +11,7 @@
       <button id="authorize-button" onclick="handleAuthClick(event)">
         Authorize
 	      </button>
-  	</div>
+  </div>
 	    <h1>{{currentDate}}</h1>
 	    <div class="ui container">
 	    	<div class="ui grid">
@@ -24,8 +24,8 @@
 			<div id="sunday"class="two wide column">Sunday</div>
 	  	</div>
 	</div>
-	<div ng-repeat="x in events "class="ui cards ">
-		<div class="card " id="card{{$index}}" >
+	<div ng-repeat="x in events | day: daye "class="ui cards ">
+		<div class="card ">
 		    <div class="content ">
 		      	<div class="header">
 		        	{{x.summary}}

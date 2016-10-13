@@ -1,1 +1,1 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes',  'NerdCtrl' ]);
+angular.module('sampleApp', ['ngRoute', 'appRoutes',  'displayCalendarCtrl', 'filter' ]);
