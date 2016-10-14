@@ -12,33 +12,41 @@
         Authorize
 	      </button>
   </div>
-	    <h1>{{currentDate}}</h1>
-	    <div class="ui container">
+
+	    <div>
+	    	<!--Further abstract this-->
 	    	<div class="ui grid">
-	   		<div id="monday"class="two wide column">Monday</div>
-	  		<div id="tuesday"class="two wide column">Tuesday</div>
-	 		<div id="wednesday"class="two wide column">Wednesday</div>
-	  		<div id="thursday"class="two wide column">Thursday</div>
-	  		<div id="friday"class="two wide column">Friday</div>
-			<div id="saturday"class="two wide column">Saturday</div>
-			<div id="sunday"class="two wide column">Sunday</div>
+	   		<div id="monday"class="two wide column"><h3>Monday</h3>
+	   			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 1 "class="ui cards "> 	
+	   			</div>
+	   		</div>
+	  		<div id="tuesday"class="two wide column">Tuesday
+	  			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 2 "class="ui cards "> 	
+	   			</div>
+   			</div>
+	 		<div id="wednesday"class="two wide column">Wednesday
+	 			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 3 "class="ui cards "> 	
+	   			</div>
+   			</div>
+	  		<div id="thursday"class="two wide column">Thursday
+	  			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 4 "class="ui cards "> 	
+	   			</div>
+	   		</div>
+	  		<div id="friday"class="two wide column">Friday
+	  			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 5 "class="ui cards "> 	
+	   			</div>
+	   		</div>
+			<div id="saturday"class="two wide column">Saturday
+				<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 6 "class="ui cards "> 	
+	   			</div>
+   			</div>
+			<div id="sunday"class="two wide column">Sunday
+				<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 7 "class="ui cards "> 	
+	   			</div>
+	   		</div>	
 	  	</div>
 	</div>
-	<div ng-repeat="x in events | day: daye "class="ui cards ">
-		<div class="card ">
-		    <div class="content ">
-		      	<div class="header">
-		        	{{x.summary}}
-		      	</div>
-		      	<div class="meta">
-		        	{{x.location}}
-		      	</div>
-		      	<div class="description">
-		        	{{x.start.dateTime}}
-		      	</div>
-		    </div>
-		</div>
-	</div>
+	
     
 </table>
 </div>
