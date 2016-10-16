@@ -1,7 +1,7 @@
 <div class="jumbotron text-center">
     <h1>Events</h1>
-   
-      <button ng-click="getEvents()" >
+
+      <button class="ui button" ng-click="getEvents()" >
         Get events
       </button>
 
@@ -16,34 +16,53 @@
 	    <div>
 	    	<!--Further abstract this-->
 	    	<div class="ui grid">
-	   		<div id="monday"class="two wide column"><h3>Monday</h3>
+	    		<div class="two wide column"></div>
+	    		<div class="two wide column">Monday</div>
+	    		<div class="two wide column">Tuesday</div>
+	    		<div class="two wide column">Wednesday</div>
+	    		<div class="two wide column">Thursday</div>
+	    		<div class="two wide column">Friday</div>
+	    		<div class="two wide column">Saturday</div>
+	    		<div class="two wide column">Sunday</div>
+	    	
+	    	<div class="two wide column">
+	    		<div ng-repeat="i in [1, 2,3,4,5,6,7,8,9,10,11,12,1,2,3,4,5,6,7,8,9,10,11,12] track by $index" style="position:relative; height:40px;" >
+	    		
+	    		{{i}}
+	    		</div>
+	   		</div>
+
+	   		
+	   		<div id="monday"class="two wide column">
 	   			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 1 "class="ui cards "> 	
 	   			</div>
 	   		</div>
-	  		<div id="tuesday"class="two wide column">Tuesday
+
+	  		<div id="tuesday"class="two wide column">
 	  			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 2 "class="ui cards "> 	
 	   			</div>
    			</div>
-	 		<div id="wednesday"class="two wide column">Wednesday
+	 		<div id="wednesday"class="two wide column">
 	 			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 3 "class="ui cards "> 	
 	   			</div>
    			</div>
-	  		<div id="thursday"class="two wide column">Thursday
+	  		<div id="thursday"class="two wide column">
 	  			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 4 "class="ui cards "> 	
 	   			</div>
 	   		</div>
-	  		<div id="friday"class="two wide column">Friday
+	  		<div id="friday"class="two wide column">
 	  			<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 5 "class="ui cards "> 	
 	   			</div>
 	   		</div>
-			<div id="saturday"class="two wide column">Saturday
+			<div id="saturday"class="two wide column">
 				<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 6 "class="ui cards "> 	
 	   			</div>
    			</div>
-			<div id="sunday"class="two wide column">Sunday
+			<div id="sunday"class="two wide column">
 				<div ng-include="'/views/single_event.html'" ng-repeat="x in events | day: 7 "class="ui cards "> 	
 	   			</div>
 	   		</div>	
+	   	
 	  	</div>
 	</div>
 	

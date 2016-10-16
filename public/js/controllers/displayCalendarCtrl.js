@@ -1,14 +1,33 @@
-angular.module('displayCalendarCtrl', []).controller('NerdController', [ '$scope','dayFilter', function($scope,dayFilter) {
+//Create events
+var events=[];
+//Load google API
+function loadGoogleEvents()
+{
+    checkAuth();//eventually will return json
+    for(var i=0; i<googleEvents.length;i++)
+    {
+      var eventDate = new Date(googleEvents[i].start.dateTime);
+      var eventEnd = new Date(googleEvents[i].end.dateTime);
+      events.push({
+        name: googleEvents[i].summary,
+        start: eventDate,
+        end: eventEnd,
+        deadline: 1
+      });
+    }
+    console.log(events);
+}
 
-  
-   
+angular.module('displayCalendarCtrl', []).controller('NerdController', [ '$scope','dayFilter', function($scope,dayFilter) {
     $scope.getEvents = function() {
-      checkAuth();
+      loadGoogleEvents();
+      
       $scope.events = events;
-      console.log(events);
+      
   };
 }]);
 
+//Filter based on day
 angular.module('filter', []).filter('day', function() {
     return function(events, day) 
     {
@@ -17,12 +36,12 @@ angular.module('filter', []).filter('day', function() {
         var j = 0;
 
         for (var i = 0; i < events.length; i++) {
-          var eventDate = new Date(events[i].start.dateTime);
-          var dateDifference = (currentDate.getDate()-eventDate.getDate());
-          console.log(dateDifference);
-          if(eventDate.getDay() == day && 0 <= dateDifference && dateDifference <= 7 )
+          var week = 604800000;
+          var dateDifference = (events[i].start.getTime()-currentDate.getTime());
+         
+          if(events[i].start.getDay() == day && 0 <= dateDifference && dateDifference <= week )
           {
-            console.log("b" +dateDifference);
+            
             tempEvents[j] = events[i];
             j++;
           }

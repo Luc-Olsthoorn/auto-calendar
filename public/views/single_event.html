@@ -1,8 +1,12 @@
-
-	<div class="card ">
-		    <div class="content ">
-		      	<div class="header">
-		        	{{x.summary}}
-		      	</div>
-		    </div>
-		</div>
+<style>
+   .truncate {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+   	</style>
+<div class="card " style="height: {{(x.end.getTime()-x.start.getTime())*.00001111}}px; position:absolute; top: {{(x.start.getMinutes()*60+(x.start.getHours()-1)*3600)/90}}px; " >
+	<p class="truncate">{{x.name}}</p>
+		      
+</div>
