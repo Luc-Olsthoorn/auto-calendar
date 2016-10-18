@@ -5,7 +5,7 @@
 
         // home page
         .when('/', {
-            templateUrl: 'views/events.html',
+            templateUrl: 'components/displayCalendar/events.html',
             controller: 'NerdController'
             
         })
