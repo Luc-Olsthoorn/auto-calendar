@@ -8,24 +8,34 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/libs/semantic-ui/dist/semantic.min.css">
-    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+  
 
     <!-- JS -->
     <script src="assets/libs/angular/angular.min.js"></script>
     <script src="assets/libs/angular-route/angular-route.min.js"></script>
      <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
     <!-- ANGULAR CUSTOM -->
-    <script src="components/displayCalendar/displayCalendarCtrl.js"></script>
-    <script src="assets/js/calendar.js"></script>
-    <script src="appRoutes.js"></script>
     <script src="appModule.js"></script>
-</head>
-<body ng-app="sampleApp" ng-controller="NerdController">
-<div class="container">
+    <script src="components/displayCalendar/displayCalendarCtrl.js"></script>
+    <script src="components/newEvent/newEventCtrl.js"></script>
+    <script src="assets/js/calendar.js"></script>
+    
+    </head>
+<body>
+    <div ng-app="displayCalendarApp" >
+        <div ng-controller="displayCalendarCtrl">
+            <div ng-include="'components/displayCalendar/events.html'"></div>
+        </div>
+    </div>
 
-    <!-- ANGULAR DYNAMIC CONTENT -->
-    <div ng-view></div>
+    <div id="newEventApp" ng-app="newEventApp" >
+        <div ng-controller="newEventCtrl">
+            <div ng-include="'components/newEvent/template.html'"></div>
+        </div>
+    </div>
+    <script>angular.bootstrap(document.getElementById("newEventApp"), ['newEventApp']);</script>
+    
 
-</div>
+
 </body>
 </html>

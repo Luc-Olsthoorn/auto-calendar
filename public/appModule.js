@@ -1,1 +1,4 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes',  'displayCalendarCtrl', 'filter' ]);
+var displayCalendar = angular.module('displayCalendarApp', []);
+var newEvent = angular.module('newEventApp',[]);
+
+

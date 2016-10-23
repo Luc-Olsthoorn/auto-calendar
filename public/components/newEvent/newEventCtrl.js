@@ -1,0 +1,3 @@
+newEvent.controller('newEventCtrl', [ function() {
+    
+}]);

@@ -18,17 +18,16 @@ function loadGoogleEvents()
     console.log(events);
 }
 
-angular.module('displayCalendarCtrl', []).controller('NerdController', [ '$scope','dayFilter', function($scope,dayFilter) {
+displayCalendar.controller('displayCalendarCtrl', [ '$scope','dayFilter', function($scope,dayFilter) {
     $scope.getEvents = function() {
       loadGoogleEvents();
-      
+      $scope.actualTemplateUrl = "";
       $scope.events = events;
-      
   };
 }]);
 
 //Filter based on day
-angular.module('filter', []).filter('day', function() {
+displayCalendar.filter('day', function() {
     return function(events, day) 
     {
         var currentDate = new Date();
